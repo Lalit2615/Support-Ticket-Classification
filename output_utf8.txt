@@ -1,0 +1,61 @@
+﻿===== Support Ticket Classification System Pipeline =====
+
+Loaded existing data from tickets.csv
+
+Total Records: 2000
+Target 1 (Categories):
+ {'Access': 432, 'HR Support': 406, 'Miscellaneous': 400, 'Storage': 388, 'Hardware': 374}
+Target 2 (Priorities):
+ {'Medium': 821, 'Low': 806, 'High': 373}
+
+--- Cleaning Text ---
+
+--- Extracting Features (TF-IDF) ---
+
+--- Training Models ---
+Training Category Predictor (Logistic Regression)...
+Training Priority Predictor (Random Forest)...
+
+=== EVALUATION METRICS ===
+
+--- CATEGORY PREDICTION ---
+Accuracy: 1.0
+
+Classification Report:
+                precision    recall  f1-score   support
+
+       Access       1.00      1.00      1.00        72
+   HR Support       1.00      1.00      1.00        91
+     Hardware       1.00      1.00      1.00        73
+Miscellaneous       1.00      1.00      1.00        90
+      Storage       1.00      1.00      1.00        74
+
+     accuracy                           1.00       400
+    macro avg       1.00      1.00      1.00       400
+ weighted avg       1.00      1.00      1.00       400
+
+Confusion Matrix:
+ [[72  0  0  0  0]
+ [ 0 91  0  0  0]
+ [ 0  0 73  0  0]
+ [ 0  0  0 90  0]
+ [ 0  0  0  0 74]]
+
+--- PRIORITY PREDICTION ---
+Accuracy: 0.9875
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        High       1.00      0.99      0.99        70
+         Low       0.99      0.98      0.99       155
+      Medium       0.98      0.99      0.99       175
+
+    accuracy                           0.99       400
+   macro avg       0.99      0.99      0.99       400
+weighted avg       0.99      0.99      0.99       400
+
+Confusion Matrix:
+ [[ 69   0   1]
+ [  0 152   3]
+ [  0   1 174]]

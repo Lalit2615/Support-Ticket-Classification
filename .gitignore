@@ -1,0 +1,14 @@
+# environments
+.venv/
+venv/
+env/
+__pycache__/
+
+# model outputs & logs
+models/
+output.txt
+output_utf8.txt
+
+# Do NOT ignore the tickets.csv because the script generates it, 
+# but ignoring large datasets is generally a best practice.
+# *.csv
